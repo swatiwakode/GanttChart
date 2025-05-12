@@ -1,56 +1,79 @@
-# React Gantt Chart Viewer
+# 📅 React Gantt Chart Viewer
 
-A React-based Gantt chart viewer built using the [`vis-timeline`](https://visjs.github.io/vis-timeline/) library. This project visualizes route-based planning data loaded from a JSON file, with adjustable zoom levels and grouped timeline views.
+A fast and interactive Gantt chart viewer built with **React** and **vis-timeline**, designed to visualize route-based planning data from JSON input. Includes zoom controls, grouped timelines, and performance optimizations for large datasets.
 
-## 🚀 Features 
+![Demo Screenshot](./public/demo.png)
 
-- 📊 Interactive Gantt-style timeline
-- ⏱  Slider for Zoom levels
-- 🧠 Optimized rendering with `useMemo` and `useCallback`
+---
 
-## 📦 Technologies Used
+## 🚀 Features
 
-- [React](https://reactjs.org/)
-- [vis-timeline](https://visjs.github.io/vis-timeline/)
+- ✅ Interactive Gantt-style timeline using `vis-timeline`
+- 🔍 Zoom control with smooth slider
+- ⚡ Optimized with `useMemo` and `useCallback`
 
+---
 
 ## 🗂️ Project Structure
+
+\`\`\`txt
 GANTTCHART/
 ├── public/               # Static files and HTML template
 │   └── index.html
 ├── src/                  # Application source code
-│   ├── components/       # Reusable React components (e.g., GanttChart, ZoomSlider)
-│   ├── data/             # Static or mock route planning JSON data
-│   └── App.jsx           # Main application component ( Entry point for React app)
-├── webpack.config.js     # Webpack configuration
-├── package.json          # Project metadata and scripts
-└── README.md             # Project documentation
+│   ├── components/       # UI components
+│   ├── data/             # Sample data
+│   └── App.jsx           # Main App component (Entry point)\
+├── webpack.config.js     # Webpack build config
+├── .gitignore
+├── package.json          # Project metadata
+└── README.md             # Documentation
+\`\`\`
 
+---
 
-## ▶️ How to Run
+## 🛠️ Technologies Used
 
-✅ Prerequisites
-Install Node.js (v16 or later)
+- [React](https://reactjs.org/)
+- [vis-timeline](https://visjs.github.io/vis-timeline/)
+- Webpack
+- Babel
 
-npm is included with Node.js
+---
 
-📦 Step 1: Install Dependencies
-Run this in the root of the project:
+## ▶️ Getting Started
 
+### ✅ Prerequisites
+
+- Node.js v16 or later
+- npm (comes with Node.js)
+
+### 📦 Install Dependencies
+
+\`\`\`bash
 npm install
+\`\`\`
 
-🚀 Step 2: Start the Development Server
-This runs the app in development mode with hot-reloading:
+### 🚀 Start the Development Server
 
+\`\`\`bash
 npm start
-Open your browser and go to http://localhost:3000
+\`\`\`
 
-🏗️ Step 3: Build for Production
-Compile and bundle the app for deployment:
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+### 🏗️ Build for Production
+
+\`\`\`bash
 npm run build
-Output is saved in the /dist directory
+\`\`\`
 
-## 📌 Notes
-You can customize the port and paths in webpack.config.js.
+Compiled output will be in the `/dist` folder.
 
+---
+
+## ⚙️ Configuration
+
+Customize paths, port, and build behavior in `webpack.config.js`.
+
+---
