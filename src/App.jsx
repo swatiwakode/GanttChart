@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import GanttChart from './GanttChart';
+import GanttChart from './components/GanttChart';
 
 const App = () => {
   return (

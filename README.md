@@ -13,7 +13,22 @@ A React-based Gantt chart viewer built using the [`vis-timeline`](https://visjs.
 - [React](https://reactjs.org/)
 - [vis-timeline](https://visjs.github.io/vis-timeline/)
 
-▶️ How to Run
+
+## 🗂️ Project Structure
+GANTTCHART/
+├── public/               # Static files and HTML template
+│   └── index.html
+├── src/                  # Application source code
+│   ├── components/       # Reusable React components (e.g., GanttChart, ZoomSlider)
+│   ├── data/             # Static or mock route planning JSON data
+│   └── App.jsx           # Main application component ( Entry point for React app)
+├── webpack.config.js     # Webpack configuration
+├── package.json          # Project metadata and scripts
+└── README.md             # Project documentation
+
+
+## ▶️ How to Run
+
 ✅ Prerequisites
 Install Node.js (v16 or later)
 
@@ -23,6 +38,7 @@ npm is included with Node.js
 Run this in the root of the project:
 
 npm install
+
 🚀 Step 2: Start the Development Server
 This runs the app in development mode with hot-reloading:
 
@@ -35,6 +51,6 @@ Compile and bundle the app for deployment:
 npm run build
 Output is saved in the /dist directory
 
-📌 Notes
+## 📌 Notes
 You can customize the port and paths in webpack.config.js.
 
