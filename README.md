@@ -16,7 +16,7 @@ A fast and interactive Gantt chart viewer built with **React** and **vis-timelin
 
 ## 🗂️ Project Structure
 
-\`\`\`txt
+```
 GANTTCHART/
 ├── public/               # Static files and HTML template
 │   └── index.html
@@ -28,7 +28,7 @@ GANTTCHART/
 ├── .gitignore
 ├── package.json          # Project metadata
 └── README.md             # Documentation
-\`\`\`
+```
 
 ---
 
@@ -50,23 +50,18 @@ GANTTCHART/
 
 ### 📦 Install Dependencies
 
-\`\`\`bash
-npm install
-\`\`\`
+
+`npm install`
 
 ### 🚀 Start the Development Server
 
-\`\`\`bash
-npm start
-\`\`\`
+`npm start`
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### 🏗️ Build for Production
 
-\`\`\`bash
-npm run build
-\`\`\`
+`npm run build`
 
 Compiled output will be in the `/dist` folder.
 
