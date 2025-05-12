@@ -3,6 +3,7 @@ import { Timeline } from 'vis-timeline/standalone';
 import 'vis-timeline/styles/vis-timeline-graph2d.min.css';
 import data from './data.json';
 
+// Define different zoom levels (time ranges) in milliseconds
 const ZOOM_LEVELS = [
   { label: '12 hours', ms: 1000 * 60 * 60 * 12 },
   { label: '4 hours', ms: 1000 * 60 * 60 * 4 },
@@ -12,10 +13,14 @@ const ZOOM_LEVELS = [
 ];
 
 const GanttChart = () => {
+  // Reference to the DOM container where the timeline will be rendered
   const containerRef = useRef(null);
+  // Reference to the timeline instance
   const timelineRef = useRef(null);
+  // State to manage the current zoom level
   const [zoomIndex, setZoomIndex] = useState(0);
 
+  // Helper function to convert "HH:MM AM/PM" to a Date object on today's date
   const parseTime = useCallback((timeStr) => {
     const [time, modifier] = timeStr.split(' ');
     let [hours, minutes] = time.split(':').map(Number);
@@ -28,6 +33,7 @@ const GanttChart = () => {
     return new Date(now);
   }, []);
 
+  // Memoized list of timeline items from the JSON data
   const items = useMemo(() => {
     return (data.routes || []).flatMap((route, routeIndex) =>
       route.route.map((entry) => ({
@@ -40,6 +46,7 @@ const GanttChart = () => {
     );
   }, [parseTime]);
 
+  // Memoized list of groups (each group represents a route)
   const groups = useMemo(() => {
     return (data.routes || []).map((_, idx) => ({
       id: `route-${idx}`,
@@ -47,6 +54,7 @@ const GanttChart = () => {
     }));
   }, []);
 
+  // Initialize the timeline when container, items, or groups change
   useEffect(() => {
     if (!containerRef.current) return;
 
@@ -65,12 +73,15 @@ const GanttChart = () => {
       showCurrentTime: true,
     };
 
+    // Create the Timeline instance
     const timeline = new Timeline(containerRef.current, items, groups, options);
     timelineRef.current = timeline;
 
+    // Cleanup on unmount or when items/groups change
     return () => timeline.destroy();
-  }, [items, groups]); // Only recreate on data changes
+  }, [items, groups]);
 
+  // Update the visible window of the timeline when zoom level changes
   useEffect(() => {
     if (!timelineRef.current) return;
 
@@ -84,6 +95,7 @@ const GanttChart = () => {
 
   return (
     <div>
+      {/* Zoom level control */}
       <div style={{ marginBottom: '1rem' }}>
         <label>
           Zoom Level:
@@ -99,6 +111,8 @@ const GanttChart = () => {
           <span style={{ marginLeft: '1rem' }}>{ZOOM_LEVELS[zoomIndex].label}</span>
         </label>
       </div>
+
+      {/* Timeline container */}
       <div
         ref={containerRef}
         style={{ height: '400px', border: '1px solid #ccc', overflowY: 'auto' }}
